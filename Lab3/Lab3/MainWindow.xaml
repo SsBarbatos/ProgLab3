@@ -1,0 +1,25 @@
+﻿<Window
+    x:Class="Lab3.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lab3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <NavigationView PaneDisplayMode="Left" PaneTitle="Menu" IsBackEnabled="True" x:Name="NV" SelectionChanged="NV_SelectionChanged" BackRequested="NV_BackRequested">
+
+        <NavigationView.AutoSuggestBox>
+            <AutoSuggestBox x:Name="SearchBox" QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" />
+        </NavigationView.AutoSuggestBox>
+
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="Projets" Name="Projet" />
+            <NavigationViewItemSeparator />
+            <NavigationViewItem Content="Ajouter un employé"  Name="AjoutEmploye" />
+            <NavigationViewItem Content="Ajouter un projet"  Name="AjoutProjet" />
+        </NavigationView.MenuItems>
+
+        <Frame x:Name="main" Grid.Column="1" />
+    </NavigationView>
+</Window>
