@@ -30,7 +30,9 @@ namespace Lab3
 
         private void btAjoutEmploye_Click(object sender, RoutedEventArgs e)
         {
+            GestionBD.getInstance().AjouterEmploye(new Employe(Convert.ToInt32(TbMatricule.Text), TbNom.Text, TbPrenom.Text));
 
+            this.Frame.Navigate(typeof(Afficher));
         }
     }
 }

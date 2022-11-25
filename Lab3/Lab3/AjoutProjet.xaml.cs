@@ -23,9 +23,23 @@ namespace Lab3
     /// </summary>
     public sealed partial class AjoutProjet : Page
     {
+        string date = "";
+
         public AjoutProjet()
         {
             this.InitializeComponent();
+        }
+
+        private void date_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        {
+            date = calendar.Date.Value.ToString("dddd dd MMMM");
+        }
+
+        private void btAjoutProjet_Click(object sender, RoutedEventArgs e)
+        {
+            GestionBD.getInstance().AjouterProjet(new Projet(TbNumero.Text, date, Convert.ToInt32(TbBudget.Text), TbDescription.Text, TbEmploye.Text));
+
+            this.Frame.Navigate(typeof(Afficher));
         }
     }
 }

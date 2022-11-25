@@ -8,7 +8,15 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <StackPanel HorizontalAlignment="Center">
+        <TextBlock Text="Ajout d'un projet" />
 
-    </Grid>
+        <TextBox x:Name="TbNumero" Header="Numéro"/>
+        <CalendarDatePicker x:Name="calendar" DateChanged="date_DateChanged"/>
+        <TextBox x:Name="TbBudget"  Header="Budget"/>
+        <TextBox x:Name="TbDescription"  Header="Description"/>
+        <TextBox x:Name="TbEmploye"  Header="Employe"/>
+
+        <Button x:Name="btAjoutProjet" Content="Ajouter" Click="btAjoutProjet_Click" />
+    </StackPanel>
 </Page>
