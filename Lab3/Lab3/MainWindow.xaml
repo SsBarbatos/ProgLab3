@@ -14,10 +14,12 @@
         </NavigationView.AutoSuggestBox>
 
         <NavigationView.MenuItems>
+            <NavigationViewItemSeparator />
             <NavigationViewItem Content="Projets" Name="Projet" />
             <NavigationViewItemSeparator />
             <NavigationViewItem Content="Ajouter un employé"  Name="AjoutEmploye" />
             <NavigationViewItem Content="Ajouter un projet"  Name="AjoutProjet" />
+            <NavigationViewItemSeparator />
         </NavigationView.MenuItems>
 
         <Frame x:Name="main" Grid.Column="1" />

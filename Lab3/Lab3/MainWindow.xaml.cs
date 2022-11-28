@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Shapes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,8 @@ namespace Lab3
         public MainWindow()
         {
             this.InitializeComponent();
+
+            main.Navigate(typeof(Afficher));
         }
 
         private void NV_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -34,7 +37,7 @@ namespace Lab3
 
              switch (item.Name)
              {
-                 case "Afficher":
+                 case "Projet":
                      main.Navigate(typeof(Afficher));
                      break;
                  case "AjoutEmploye":

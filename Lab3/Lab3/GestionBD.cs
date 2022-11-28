@@ -109,7 +109,7 @@ namespace Lab3
                     Debut = r.GetString("debut"),
                     Budget = r.GetInt32("budget"),
                     Description = r.GetString("description"),
-                    Employe = r.GetString("employe")
+                    Employe = r.GetInt32("employe")
                 };
 
                 listePro.Add(projet);
@@ -127,7 +127,7 @@ namespace Lab3
             string debut = projet.Debut;
             int budget = projet.Budget;
             string description = projet.Description;
-            string employe = projet.Employe;
+            int employe = projet.Employe;
 
             try
             {
@@ -142,9 +142,8 @@ namespace Lab3
                 commande.Parameters.AddWithValue("@employe", employe);
 
                 con.Open();
-                commande.Prepare();
-                int q = commande.ExecuteNonQuery();
-
+                    commande.Prepare();
+                    int i = commande.ExecuteNonQuery();
                 con.Close();
             }
             catch (MySqlException ex)

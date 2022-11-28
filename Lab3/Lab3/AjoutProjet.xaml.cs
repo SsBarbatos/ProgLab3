@@ -24,6 +24,7 @@ namespace Lab3
     public sealed partial class AjoutProjet : Page
     {
         string date = "";
+        bool erreur = false;
 
         public AjoutProjet()
         {
@@ -37,9 +38,73 @@ namespace Lab3
 
         private void btAjoutProjet_Click(object sender, RoutedEventArgs e)
         {
-            GestionBD.getInstance().AjouterProjet(new Projet(TbNumero.Text, date, Convert.ToInt32(TbBudget.Text), TbDescription.Text, TbEmploye.Text));
+            // ERREUR CHAMPS VIDE
+            if (TbBudget.Text == "" || TbDescription.Text == "" || TbEmploye.Text == "" || TbNumero.Text == "")
+            {
+                erreurTot.Visibility = Visibility.Visible;
+                erreurTot.Text = "Vous devez remplir tous les champs";
 
-            this.Frame.Navigate(typeof(Afficher));
+                erreur = true;
+            }
+            else
+            {
+                // ERRUER BUDGET
+                if (TbBudget. == typeof(int))
+                {
+                    erreur = false;
+
+                    erreurBud.Visibility = Visibility.Collapsed;
+
+                    if (Convert.ToInt32(TbBudget.Text) < 10000 || Convert.ToInt32(TbBudget.Text) > 100000)
+                    {
+                        erreurBud.Visibility = Visibility.Visible;
+                        erreurBud.Text = "Le budget doit être entre 10 000$ et 100 000$";
+
+                        erreur = true;
+                    }
+                    else
+                    {
+                        erreurBud.Visibility = Visibility.Collapsed;
+
+                        erreur = false;
+                    }
+                }
+                else
+                {
+                    erreurBud.Visibility = Visibility.Visible;
+                    erreurBud.Text = "Seulement les chiffres sont acceptés";
+
+                    erreur = true;
+                }
+
+
+                // ERREUR NUMERO
+                if (TbNumero.Text.Length > 14)
+                {
+                    erreurNum.Visibility = Visibility.Visible;
+                    erreurNum.Text = "Le numéro doit contenir 14 caractères maximum";
+
+                    erreur = true;
+                }
+                else
+                {
+                    erreurNum.Visibility = Visibility.Collapsed;
+
+                    erreur = false;
+                }
+
+                erreurTot.Visibility = Visibility.Collapsed;
+
+                erreur = false;
+            }
+
+            if(erreur = false)
+            {
+                GestionBD.getInstance().AjouterProjet(new Projet(TbNumero.Text, date, Convert.ToInt32(TbBudget.Text), TbDescription.Text, Convert.ToInt32(TbEmploye.Text)));
+
+                this.Frame.Navigate(typeof(Afficher));
+            }
+
         }
     }
 }

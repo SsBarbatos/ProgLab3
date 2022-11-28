@@ -10,13 +10,20 @@
 
     <StackPanel HorizontalAlignment="Center">
         <TextBlock Text="Ajout d'un projet" />
-
+        
         <TextBox x:Name="TbNumero" Header="Numéro"/>
+        <TextBlock x:Name="erreurNum" Visibility="Collapsed" Foreground="Red" />
+        
         <CalendarDatePicker x:Name="calendar" DateChanged="date_DateChanged"/>
-        <TextBox x:Name="TbBudget"  Header="Budget"/>
+        
+        <TextBox x:Name="TbBudget"  Header="Budget" />
+        <TextBlock x:Name="erreurBud" Visibility="Collapsed" Foreground="Red" />
+        
         <TextBox x:Name="TbDescription"  Header="Description"/>
-        <TextBox x:Name="TbEmploye"  Header="Employe"/>
+        
+        <TextBox x:Name="TbEmploye"  Header="Employe" />
 
         <Button x:Name="btAjoutProjet" Content="Ajouter" Click="btAjoutProjet_Click" />
+        <TextBlock x:Name="erreurTot" Visibility="Collapsed" Foreground="Red" />
     </StackPanel>
 </Page>

@@ -12,7 +12,7 @@ namespace Lab3
         string debut;
         int budget;
         string description;
-        string employe;
+        int employe;
 
         public Projet()
         {
@@ -20,10 +20,10 @@ namespace Lab3
             debut = "";
             budget = 0;
             description = "";
-            employe = "";
+            employe = 0;
         }
 
-        public Projet(string _numero, string _debut, int _budget, string _description, string _employe)
+        public Projet(string _numero, string _debut, int _budget, string _description, int _employe)
         {
             numero = _numero;
             debut = _debut;
@@ -36,11 +36,11 @@ namespace Lab3
         public string Debut { get { return debut; } set { debut = value; } }
         public int Budget { get { return budget; } set { budget = value; } }
         public string Description { get { return description; } set { description = value; } }
-        public string Employe { get { return employe; } set { employe = value; } }
+        public int Employe { get { return employe; } set { employe = value; } }
 
         public override string ToString()
         {
-            return numero + debut.ToString() + budget.ToString() + description + employe;
+            return numero + debut.ToString() + budget.ToString() + description + employe.ToString();
         }
     }
 }
