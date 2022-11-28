@@ -6,15 +6,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Plum">
 
     <StackPanel HorizontalAlignment="Center">
-        <TextBlock Text="Ajout d'un employé" />
+        <TextBlock Text="Ajout d'un employé" FontSize="40" Margin="0,0,0,25"/>
 
         <TextBox x:Name="TbMatricule" Header="Matricule"/>
+        <TextBlock x:Name="erreurMat" Visibility="Collapsed" Foreground="red" />
+        
         <TextBox x:Name="TbNom"  Header="Nom"/>
-        <TextBox x:Name="TbPrenom"  Header="Prenom"/>
+        <TextBlock x:Name="erreurNom" Visibility="Collapsed" Foreground="red" />
 
-        <Button x:Name="btAjoutEmploye" Content="Ajouter" Click="btAjoutEmploye_Click" />
+        <TextBox x:Name="TbPrenom"  Header="Prenom" Margin="0,0,0,25"/>
+        <TextBlock x:Name="erreurPre" Visibility="Collapsed" Foreground="red" />
+
+        <Button x:Name="btAjoutEmploye" Content="Ajouter" Click="btAjoutEmploye_Click" Foreground="Purple"/>
+        <TextBlock x:Name="erreurTot" Visibility="Collapsed" Foreground="red" />
+
     </StackPanel>
 </Page>

@@ -25,6 +25,7 @@ namespace Lab3
     {
         string date = "";
         bool erreur = false;
+        int value;
 
         public AjoutProjet()
         {
@@ -49,7 +50,7 @@ namespace Lab3
             else
             {
                 // ERRUER BUDGET
-                if (TbBudget. == typeof(int))
+                if (int.TryParse(TbBudget.Text, out value))
                 {
                     erreur = false;
 
@@ -98,7 +99,7 @@ namespace Lab3
                 erreur = false;
             }
 
-            if(erreur = false)
+            if(erreur == false)
             {
                 GestionBD.getInstance().AjouterProjet(new Projet(TbNumero.Text, date, Convert.ToInt32(TbBudget.Text), TbDescription.Text, Convert.ToInt32(TbEmploye.Text)));
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Google.Protobuf.WellKnownTypes;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -23,6 +24,8 @@ namespace Lab3
     /// </summary>
     public sealed partial class AjoutEmploye : Page
     {
+        bool erreur = false;
+
         public AjoutEmploye()
         {
             this.InitializeComponent();
@@ -30,9 +33,41 @@ namespace Lab3
 
         private void btAjoutEmploye_Click(object sender, RoutedEventArgs e)
         {
-            GestionBD.getInstance().AjouterEmploye(new Employe(Convert.ToInt32(TbMatricule.Text), TbNom.Text, TbPrenom.Text));
+            // ERREUR CHAMPS VIDE
+            if (TbMatricule.Text == "" || TbNom.Text == "" || TbPrenom.Text == "")
+            {
+                erreurTot.Visibility = Visibility.Visible;
+                erreurTot.Text = "Vous devez remplir tous les champs";
 
-            this.Frame.Navigate(typeof(Afficher));
+                erreur = true;
+            }
+            else
+            {
+                // ERRUER MATRICULE
+                if (TbMatricule.Text.Length > 7)
+                {
+                    erreur = true;
+
+                    erreurMat.Visibility = Visibility.Visible;
+                    erreurMat.Text = "Le matricule ne peut pas dépasser 7 chiffres";
+                }
+                else
+                {
+                    erreurMat.Visibility = Visibility.Collapsed;
+
+                    erreur = false;
+                }
+
+                erreurTot.Visibility = Visibility.Collapsed;
+            }
+
+
+            if (erreur == false)
+            {
+                GestionBD.getInstance().AjouterEmploye(new Employe(Convert.ToInt32(TbMatricule.Text), TbNom.Text, TbPrenom.Text));
+
+                this.Frame.Navigate(typeof(Afficher));
+            }
         }
     }
 }
