@@ -61,6 +61,35 @@ namespace Lab3
             return listeEmp;
         }
 
+        public ObservableCollection<Employe> GetEmploye(string texte)
+        {
+            listeEmp.Clear();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "SELECT * FROM employe where nom like '%" + texte + "%'";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                Employe employe = new Employe()
+                {
+                    Matricule = r.GetInt32("matricule"),
+                    Nom = r.GetString("nom"),
+                    Prenom = r.GetString("prenom")
+                };
+
+                listeEmp.Add(employe);
+            }
+
+            r.Close();
+            con.Close();
+
+            return listeEmp;
+        }
+
         public void AjouterEmploye(Employe employe)
         {
             int matricule = employe.Matricule;

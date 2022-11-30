@@ -26,10 +26,16 @@ namespace Lab3
         string date = "";
         bool erreur = false;
         int value;
+        int employe = 0;
 
         public AjoutProjet()
         {
             this.InitializeComponent();
+
+            foreach(Employe employe in GestionBD.getInstance().GetEmployes())
+            { 
+                cbEmploye.Items.Add(employe.Prenom + " " + employe.Nom); 
+            }
         }
 
         private void date_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
@@ -105,6 +111,11 @@ namespace Lab3
 
                 this.Frame.Navigate(typeof(Afficher));
             }
+
+        }
+
+        private void cbEmploye_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }

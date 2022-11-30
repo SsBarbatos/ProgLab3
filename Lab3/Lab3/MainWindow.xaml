@@ -7,21 +7,21 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <NavigationView PaneDisplayMode="Left" PaneTitle="Menu" IsBackEnabled="True" x:Name="NV" SelectionChanged="NV_SelectionChanged" BackRequested="NV_BackRequested">
+    <NavigationView PaneDisplayMode="Left" PaneTitle="Menu" IsBackEnabled="True" x:Name="NV" SelectionChanged="NV_SelectionChanged" BackRequested="NV_BackRequested" Background="Plum">
 
         <NavigationView.AutoSuggestBox>
-            <AutoSuggestBox x:Name="SearchBox" QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" />
+            <AutoSuggestBox x:Name="SearchBox" QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" SuggestionChosen="SearchBox_SuggestionChosen"/>
         </NavigationView.AutoSuggestBox>
 
         <NavigationView.MenuItems>
             <NavigationViewItemSeparator />
-            <NavigationViewItem Content="Projets" Name="Projet" />
+            <NavigationViewItem Content="Projets" Name="Projet" FontSize="20" Foreground="White" />
             <NavigationViewItemSeparator />
-            <NavigationViewItem Content="Ajouter un employé"  Name="AjoutEmploye" />
-            <NavigationViewItem Content="Ajouter un projet"  Name="AjoutProjet" />
+            <NavigationViewItem Content="Ajouter un employé"  Name="AjoutEmploye"  FontSize="15" Foreground="White" />
+            <NavigationViewItem Content="Ajouter un projet"  Name="AjoutProjet"  FontSize="15" Foreground="White" />
             <NavigationViewItemSeparator />
         </NavigationView.MenuItems>
 
-        <Frame x:Name="main" Grid.Column="1" Background="Purple" />
+        <Frame x:Name="main" Grid.Column="1" Background="Plum" />
     </NavigationView>
 </Window>

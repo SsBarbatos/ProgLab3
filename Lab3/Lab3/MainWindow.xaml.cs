@@ -57,12 +57,15 @@ namespace Lab3
                 main.GoBack();
         }
 
-        private void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            ContentDialog dialog = new ContentDialog();
+            SearchBox.ItemsSource = GestionBD.getInstance().GetEmploye(SearchBox.Text);
+        }
 
-            dialog.Content = SearchBox.Text;
-            dialog.ShowAsync();
+        private void SearchBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+            Employe employe = (Employe)args.SelectedItem;
+            main.Navigate(typeof(Recherche), employe);
         }
     }
 }
