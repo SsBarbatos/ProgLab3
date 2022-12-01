@@ -10,7 +10,7 @@
     <NavigationView PaneDisplayMode="Left" PaneTitle="Menu" IsBackEnabled="True" x:Name="NV" SelectionChanged="NV_SelectionChanged" BackRequested="NV_BackRequested" Background="Plum">
 
         <NavigationView.AutoSuggestBox>
-            <AutoSuggestBox x:Name="SearchBox" QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" SuggestionChosen="SearchBox_SuggestionChosen"/>
+            <AutoSuggestBox x:Name="SearchBox" QueryIcon="Find" TextChanged="SearchBox_TextChanged" SuggestionChosen="SearchBox_SuggestionChosen"/>
         </NavigationView.AutoSuggestBox>
 
         <NavigationView.MenuItems>

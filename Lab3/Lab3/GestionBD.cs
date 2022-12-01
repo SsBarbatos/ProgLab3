@@ -19,7 +19,7 @@ namespace Lab3
 
         public GestionBD()
         {
-            con = new MySqlConnection("Server=localhost;Database=bdlab3;Uid=root;Pwd=root");
+            con = new MySqlConnection("Server=cours.cegep3r.info;Database=a2022_420326ri_2130452-alexandre-carle;Uid=2130452;Pwd=2130452");
             listeEmp = new ObservableCollection<Employe>();
             listePro = new ObservableCollection<Projet>();
         }
